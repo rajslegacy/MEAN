@@ -1,0 +1,56 @@
+<div class="row" ng-controller="registerController">
+    <form class="col s12 m6 left">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name" type="text" ng-model="registerData.firstname" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" ng-model="registerData.lastname" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="user_name" type="text" ng-model="registerData.username" class="validate">
+          <label for="user_name">User Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" ng-model="registerData.password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" ng-model="registerData.email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <a class="waves-effect waves-light btn" ng-click="register()">Register</a>
+    </form>
+    <div class="col s12 m6 right">
+      <div class="row">
+        <div class="input-field col s12">
+          <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="assets/images/registration/register.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

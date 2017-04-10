@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+    </head>
+    <body ng-app="myApp" ng-controller="mainController" ng-cloak>
+        <nav>
+            <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <span ng-show="isLoggegIn" class="right">Hi , {{user.firstname}} !</span>
+            <ul ng-hide="isLoggegIn" id="nav-mobile" class="right">
+                <li><a href="#login">Login</a></li>
+                <li><a href="#register">Register</a></li>
+            </ul>
+            </div>
+        </nav>
+        <div ng-view></div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>
