@@ -1,45 +1,31 @@
-var app = angular.module("myApp", ["ngRoute"]);
+var app = angular.module("myApp", [
+    "ngRoute",
+    'myApp.login',
+    'myApp.register',
+    'myApp.tetris'
+    ]);
 
-app.controller('loginController',['$scope','$rootScope','$http','$location',function($scope,$rootScope,$http,$location){
-    $scope.loginData = {};
-    $scope.login = function(){
-        $http.post('/login', $scope.loginData).then(function(response){
-            $rootScope.user = response.data;
-            $rootScope.isLoggegIn = true;
-            $location.path('#');
-        }, function(err){
-            console.log(err);
-            var $toastContent = $('<span>Username or password mismatch</span>');
-            Materialize.toast($toastContent, 5000);
-        });
-    };
-}]);
 app.controller('mainController',['$scope','$http','$location',function($scope,$http,$location){
     $scope = {};
 }]);
-app.controller('registerController',['$scope','$http','$location',function($scope,$http,$location){
-    $scope.registerData = {};
-    $scope.register = function(){
-        $http.post('/register', $scope.registerData).then(function(data){
-            $location.path('/login');
+app.controller('gamesController',['$scope','$http','$location',function($scope,$http,$location){
+    $scope.gamelist = [];
+    $scope.getList = function(){
+        $http.get('/games/list').then(function(response){
+            $scope.gamelist = response.data;
         }, function(err){
             console.log(err);
         });
     };
+    $scope.getList();
 }]);
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
         templateUrl : "main.html"
     })
-    .when("/login", {
-        templateUrl : "login/login.html",
-        controller : 'loginController'
+    .when('/games',{
+        templateUrl : 'games/games.html'
     })
-    .when("/register", {
-        templateUrl : "register/register.html"
-    })
-    .otherwise("/", {
-        templateUrl : "main.html"
-    });
+    .otherwise({redirectTo: '/'});
 });

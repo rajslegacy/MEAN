@@ -7,12 +7,16 @@
     <body ng-app="myApp" ng-controller="mainController" ng-cloak>
         <nav>
             <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
-            <span ng-show="isLoggegIn" class="right">Hi , {{user.firstname}} !</span>
-            <ul ng-hide="isLoggegIn" id="nav-mobile" class="right">
-                <li><a href="#login">Login</a></li>
-                <li><a href="#register">Register</a></li>
-            </ul>
+                <a href="#" class="brand-logo">Logo</a>
+                <ul class="right">
+                    <li><a ng-hide="isLoggegIn" href="#login">Login</a></li>
+                    <li><a ng-hide="isLoggegIn" href="#register">Register</a></li>
+                    <li ng-show="isLoggegIn"> Hi , {{user.firstname}} !</li>
+                    <li ng-show="isLoggegIn"> <a href="#Logout">LogOut</a></li>
+                </ul>
+                <ul id="nav-mobile" class="right">
+                    <li> <a href="#games">Games</a></li>
+                </ul>
             </div>
         </nav>
         <div ng-view></div>
@@ -21,6 +25,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+        
+        <script src="./games/stats.js"></script>
+        <script src="./games/tetris.js"></script>
+        <script src="./login/login.js"></script>
+        <script src="./register/register.js"></script>
         <script src="./app.js"></script>
     </body>
 </html>

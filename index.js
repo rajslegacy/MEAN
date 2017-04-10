@@ -4,6 +4,7 @@ const app = express();
 var session = require('express-session');
 var morgan = require('morgan');
 var db = require('./server/db/connection');
+var games = require('./server/games/routes');
 
 app.use(session({
   secret: 'keyboard cat',
@@ -20,15 +21,9 @@ app.use('/', bodyParser.json(), function(req, res, next){
 app.listen(8080, function() {
   console.log('listening on 3001')
 });
-
+app.use('/games',games);
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/client/index.html');
-});
-app.get('/list', function(req, res) {
-  var cursor = db.getDb().collection('Users').find().toArray(function(err, results) {
-    console.log(results);
-    res.send(results);
-  });
 });
 app.post('/login', function(req, res) {
     var session = req.session;
