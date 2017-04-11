@@ -1,8 +1,7 @@
 var app = angular.module("myApp", [
     "ngRoute",
     'myApp.login',
-    'myApp.register',
-    'myApp.tetris'
+    'myApp.register'
     ]);
 
 app.controller('mainController',['$scope','$http','$location',function($scope,$http,$location){
